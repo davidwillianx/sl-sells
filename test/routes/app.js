@@ -21,7 +21,12 @@ describe('routes', function(){
 	 done();
       });
    });
-   
+   it('/ whatever should receive 404 error', function(done){
+      request(app)
+      .get('/turtule')
+      .expect(404)
+      .end(done);
+   });
 });
 
 
