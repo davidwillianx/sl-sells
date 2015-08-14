@@ -6,7 +6,7 @@ var User = require('../../app/models/user');
 
 describe('UserSchema',function(){
    before(function(done){
-     mongoose.connect(process.env.MONGO_CONNECT);
+     /*mongoose.connect(process.env.MONGO_CONNECT);*/
      done();
    }); 
    after(function(done){

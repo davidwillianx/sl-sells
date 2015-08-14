@@ -8,8 +8,16 @@ module.exports = function(userRoute,passport){
      failureFlash: true
   }));
 
-  userRoute.get('/user/dashboard',function(req, res){
+
+  userRoute.get('/user/dashboard',isAuthenticated,function(req, res){
     res.render('dashboard');
   });
 }; 
+
+
+function isAuthenticated(req, res, next){
+	if(req.isAuthenticated())
+           return next();
+        else res.redirect('/');
+}
 

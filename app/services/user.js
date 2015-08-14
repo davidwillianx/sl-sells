@@ -13,19 +13,24 @@ UserService.prototype.access = function(email, password, cb){
             else cb(new Error('email or password did not match'));
 	  });      
        }else{
-         var newUser = new User({
-	   local:{
-	     email: email,
-	     password: password
-	   }
-	 });
-	 newUser.save(function(error){
-	   if(error) cb(error);
-	   cb(null,newUser);
-	 });
+	 persistence(email, password, cb);      
        }
     });	
 };
+
+
+function persistence(email,password,cb){
+   var newUser = new User({
+     local:{
+       email: email,
+       password: password
+     }
+   });
+   newUser.save(function(error){
+     if(error) cb(error);
+     cb(null,newUser);
+   });
+}
 
 
 module.exports = UserService;

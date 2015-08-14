@@ -41,9 +41,8 @@ module.exports = function(passport){
 
 		 newUser.save(function(erro){
 		   if(error) throw error;
-		   cb(null, newUser);
+		   done(null, newUser);
 		 });
-		 
 	      }
 	    });
 	 } 
