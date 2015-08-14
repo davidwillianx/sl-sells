@@ -41,4 +41,12 @@ describe('ProductSchema',function(){
      done();
    });
  });
+ it('Should  have price',function(done){
+    product.price = 25;
+    produc.save(function(error){
+      should.not.exist(error);   
+      expect(produc.price).to.be.equal(25);
+    });
+ });
+ 
 });
