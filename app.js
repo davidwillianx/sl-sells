@@ -12,7 +12,7 @@ require('dotenv').load();
 var app = express();
 
 app.set('view engine', 'ejs');
-app.set('views',path.join( __dirname+'/app/views'));
+app.set('views',path.join( __dirname+'/app/client/views'));
 
 mongoose.connect(process.env.MONGO_CONNECT);
 require('./app/auth/passport')(passport);
@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(express.static(__dirname+'/app/client/'));
 
 app.use('/',homeRouter);
 

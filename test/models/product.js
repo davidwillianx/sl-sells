@@ -8,7 +8,8 @@ describe('ProductSchema',function(){
  var product = new Product({
    name: 'UnclePopCorn',
    brand: 'XochoCorn',
-   quantity: 2
+   quantity: 2,
+   price: 14
  });	
  before(function(done){
    mongoose.connect(process.env.MONGO_CONNECT);	 
@@ -42,11 +43,11 @@ describe('ProductSchema',function(){
    });
  });
  it('Should  have price',function(done){
-    product.price = 25;
-    produc.save(function(error){
+    product.price = 29;	 
+    product.save(function(error){
       should.not.exist(error);   
-      expect(produc.price).to.be.equal(25);
+      expect(product.price).to.be.equal(29);
+      done();
     });
  });
- 
 });
