@@ -10,7 +10,7 @@ module.exports = function(userRoute,passport){
 
 
   userRoute.get('/user/dashboard',isAuthenticated,function(req, res){
-    res.render('dashboard');
+    res.render('dashboard',{user: req.user});
   });
 }; 
 
