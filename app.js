@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var flash = require('connect-flash');
 var homeRouter = require('./app/routes/home');
+var productAPI = require('./app/routes/product');
 var error = require('./app/routes/error');
 require('dotenv').load();
 var app = express();
@@ -35,8 +36,8 @@ app.use(flash());
 app.use(express.static(__dirname+'/app/client/'));
 
 app.use('/',homeRouter);
-
 require('./app/routes/user')(app,passport);
+app.use('/product',productAPI);
 
 app.use(error.index);
 

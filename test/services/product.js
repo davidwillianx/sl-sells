@@ -29,11 +29,12 @@ describe('ProductService',function(){
      done();
   });
   it('#register - exist',function(done){
-      var name = 'MangoS',brand = 'MangoStore', quantity = 2;
+      var name = 'MangoS',brand = 'MangoStore', quantity = 2, price= 12;
       productService.register({
         name: name,
 	brand: brand,
-	quantity: quantity
+	quantity: quantity,
+	price: price
       },function(error){
         should.not.exist(error);
 	done();
@@ -44,7 +45,8 @@ describe('ProductService',function(){
        var product = {
           name: 'Master Master Candie',
 	  brand: 'MMC',
-	  quantity: 44
+	  quantity: 44,
+	  price: 22
        };	     
        productService.register(product,function(error){
 	 should.not.exist(error);      
@@ -134,7 +136,42 @@ describe('ProductService',function(){
 	      done();
 	  }); 
       }); 
-  
+  });
+  it('#find - find price 33 got 2 itens ',function(done){
+     saveMockProducts(function(error){
+       should.not.exist(error);	
+       productService.find({
+          price: 33
+       },function(error,products){
+       should.not.exist(error); 
+         expect(products.length).to.be.equal(2);
+         done();
+       });
+     }); 
+  });
+  it('#find - no products for price 10',function(done){
+     saveMockProducts(function(error){
+       should.not.exist(error);
+       productService.find({
+         price: 10
+       },function(error,products){
+         should.not.exist(error); 
+	 expect(products.length).to.equal(0);
+	 done();
+       });
+     }); 
+  });
+  it('#find - only products which price is > 23',function(done){
+     saveMockProducts(function(error){
+        should.not.exist(error);
+	productService.find({
+	  price:{ $gt: 23}  
+	},function(error,products){
+           should.not.exist(error);	
+	   expect(products.length).to.be.equal(3);
+	   done();
+	});
+     }); 
   });
 });
 
@@ -142,19 +179,22 @@ function saveMockProducts(cb){
   Product.create({
     name: 'Mistery Os Age',
     brand: 'Syxt',
-    quantity : 2
+    quantity : 2,
+    price: 23
   },{
     name: 'Selfish board',
     brand: 'SelfTech',
-    quantity: 22
+    quantity: 22,
+    price: 33
   	},{
      name: 'Mistery of Ancient',
      brand: 'Syxt',
-    quantity: 5
+    quantity: 5,
+    price: 24
  },{
     name: 'Mistery of Machines',
     brand: 'SelfTech',
-    quantity: 200
-  
+    quantity: 200,
+    price: 33
  },cb);
 }
