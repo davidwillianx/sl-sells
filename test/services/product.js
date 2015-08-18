@@ -165,7 +165,7 @@ describe('ProductService',function(){
      saveMockProducts(function(error){
         should.not.exist(error);
 	productService.find({
-	  price:{ $gt: 23}  
+	  price:{$gt: 23}  
 	},function(error,products){
            should.not.exist(error);	
 	   expect(products.length).to.be.equal(3);
