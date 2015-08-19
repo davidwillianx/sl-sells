@@ -21,3 +21,13 @@
 }
 
 .searchBox>.mdl-textfield__expandable-holder{  width: 100%;} 
+
+.add-product{
+  position: fixed;
+  display: block;
+  right: 0px;
+  bottom: 0px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}

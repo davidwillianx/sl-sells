@@ -13,7 +13,7 @@
        <header class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow ">
       	 <div class="mdl-layout__header-row">
 	  <!-- <div class="mdl-layout-spacer"></div>-->
-            <div class="searchBox mdl-textfield mdl-js-textfield mdl-textfield--expandable  mdl-textfield--align-left mdl-textfield--full-width">
+            <div class="searchBox mdl-textfield mdl-js-textfield mdl-textfield--expandable  mdl-textfield--align-left mdl-textfield--full-width is-focused">
               <label class="mdl-button mdl-js-button mdl-button--icon" for="productSearch">
 	        <i class="material-icons">search</i>
 	      </label>
@@ -22,6 +22,7 @@
                 <label class="mdl-textfield__label" for="productSearch"> Find Good things</label>
               </div>
             </div>
+	     <div class="mdl-layout-spacer"></div>
 	   </div>
        </header>
 	<div class="mdl-layout__drawer mdl-color--blue-grey-800">
@@ -38,7 +39,7 @@
 	  </nav>
 	</div>
 	<main class="mdl-layout__content">
-	    <div class="mdl-grid">
+	    <div class="mdl-grid" id="grid-product">
 	      <!-- <div class="mdl-cell mdl-cell--12-col">-->
 
 		  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" >
@@ -46,7 +47,7 @@
 		       <img src="/imgs/dog.png" alt="">
 		     </div>
 		     <div class="mdl-card__title">
-                         <h4 class="mld-card__title-text">Buit Dog</h4> 		     
+                         <h4 class="mld-card__title-text">buit dog</h4> 		     
 		     </div>
 		     <div class="mdl-card__supporting-text">
 		        this bautiful dog
@@ -55,10 +56,14 @@
 		      comprar | adicionar
 		    </div>
 		  </div>
+
 	       </div>
            <!-- </div>-->
 	</main>
-    </div>
+      </div>
+      <button class="add-product mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+	</button>
   </body>
   <script type="text/javascript" src="/js/material.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
