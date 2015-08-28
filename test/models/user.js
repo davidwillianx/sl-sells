@@ -6,7 +6,7 @@ var User = require('../../app/models/user');
 
 describe('UserSchema',function(){
    before(function(done){
-     /*mongoose.connect(process.env.MONGO_CONNECT);*/
+     mongoose.connect(process.env.MONGO_CONNECT);
      done();
    }); 
    after(function(done){
@@ -24,7 +24,7 @@ describe('UserSchema',function(){
       user.local.email = 'testusr@user.com';
       user.local.password = 'imtestnotsurethatwillwork';
       user.save(function(error){
-        should.not.exist.error;      
+        should.not.exist(error);      
 	expect(user._id).to.not.be.undefined;
 	done();
       });
@@ -38,7 +38,7 @@ describe('UserSchema',function(){
 	 }
        });
        user.save(function(error){
-         should.not.exist.error;      
+         should.not.exist(error);      
 	 expect(user.local.password).to.not.equal(myPassWd);
 	 done();
        });

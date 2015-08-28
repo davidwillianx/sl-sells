@@ -8,18 +8,8 @@ describe('routes', function(){
 	request(app)
 	.get('/')
 	.expect(200)
-	.expect('Content-type','text/html; charset=utf-8')
+	.expect('Content-Type','text/html; charset=UTF-8')
 	.end(done);
-   });
-   it('/user/connect - should\'n acess to dashboard',function(done){
-      request(app)
-      .post('/user/connect')
-      .expect('Content-type','text/html charset=utf-8')
-      .expect(302)
-      .end(function(error, res){
-         should.not.exist.error;
-	 done();
-      });
    });
    it('/ whatever should receive 404 error', function(done){
       request(app)
@@ -27,6 +17,7 @@ describe('routes', function(){
       .expect(404)
       .end(done);
    });
+
 });
 
 
