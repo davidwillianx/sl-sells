@@ -1,23 +1,20 @@
 var express = require('express');
+var jsonWebToken = require('jsonwebtoken');
+require('dotenv').load();
 
 module.exports = function(userRoute,passport){
 
- userRoute.post('/user/connect',passport.authenticate('local',{
-     successRedirect: '/user/dashboard',
-     failureRedirect: '/',
-     failureFlash: true
-  }));
-
-
-  userRoute.get('/user/dashboard',isAuthenticated,function(req, res){
-    res.render('dashboard',{user: req.user});
+ userRoute.post('/user/connect',
+     passport.authenticate('local'),
+     function(req, res){
+       var token = jsonWebToken.sign(req.user,process.env.APP_TOKEN_KEY);
+	  res.json({success : true , token : token});	
   });
-}; 
 
-
-function isAuthenticated(req, res, next){
-	if(req.isAuthenticated())
-           return next();
-        else res.redirect('/');
-}
+  function isAuthenticated(req, res, next){
+	  if(req.isAuthenticated())
+	     return next();
+	  else res.redirect('/');
+  }
+};
 

@@ -46,6 +46,11 @@
  left:30%;
  display:none;
 }
+
+.login-box{
+  top: 8%;
+}
+
 .new-item-hide{
  display:none;
 }
@@ -58,5 +63,9 @@
     top:15%; 
     left: 0;
   }
+}
+
+.top-icon-center{
+  text-align: center;
 }
 

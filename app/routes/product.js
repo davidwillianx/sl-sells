@@ -15,7 +15,8 @@ productAPI.post('/',function(req, res){
 productAPI.get('/:productname',function(req, res){
   if(req.params.productname){
      var productService = new  ProductService();
-     productService.find({name:{$regex : new RegExp(req.params.productname,'i') }  },function(error, products){
+     var likeClause = new RegExp('$'+req.params.productname+'^', 'i');
+     productService.find({name:likeClause},function(error, products){
           if(error) res.json({success: false, message: error.message});       
 	  res.json({success: true, products: products});
      });
