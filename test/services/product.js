@@ -9,10 +9,10 @@ describe('ProductService',function(){
   var  productService; 	
   before(function(done){
    mongoose.connect(process.env.MONGO_CONNECT); 
-   Product.remove().exec();
    done();
   });
   after(function(done){
+   Product.remove().exec();
     mongoose.connection.close();
     done();
   });

@@ -1,21 +1,26 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 var request = require('supertest');
-var app  = require('../../app');
 var Product = require('../../app/models/product');
+var User = require('../../app/models/user');
 var mongoose = require('mongoose');
+require('dotenv').load();
 
 
 var authToken = '';
+var app;
+
 describe('Product API',function(){
+  beforeEach(function(done){
+     app = require('../../app');
+     done();
+  });
   afterEach(function(done){
      Product.remove().exec(); 
+     User.remove().exec();
+     app.close(); 
      done();
   });	
-  after(function(done){
-    mongoose.connection.close();
-    done();
-  });
   it('POST /product/ - must not accept users with not token auth',function(done){
       request(app)
       .post('/product')
@@ -46,8 +51,12 @@ describe('Product API',function(){
 	done();
       });
     });
+    after(function(done){
+       app.close();
+       done();
+    });
     it('POST /product/ - should have message product', function(done){
-	requestProductPost('/product',null, function(error, res){
+	requestProductPost(app,'/product',null, function(error, res){
 	   should.not.exist(error);
 	   expect(res.body.success).to.be.false;
 	   /*expect(res.body.message).to.be.equal('Persistence failure');*/
@@ -55,7 +64,7 @@ describe('Product API',function(){
 	});	  
     });
     it('POST /product/ - should have Product persisted',function(done){
-       requestProductPost('/product',{
+       requestProductPost(app,'/product',{
 	  name: 'Pipoca Dori',
 	  brand: 'Candiesss',
 	  quantity: 12,
@@ -73,7 +82,7 @@ describe('Product API',function(){
        });	  
      });
      it('POST /product/ - should have persistence error',function(done){
-	requestProductPost('/product',{
+	requestProductPost(app,'/product',{
 	  name: 'Pipoca Dori',
 	  brand: 'Candiesss'
 	},function(error, res){
@@ -83,20 +92,20 @@ describe('Product API',function(){
 	}); 
      });
     it('GET /product/:name',function(done){
-      requestProductGET('/product/pantera',function(error, res){
+      requestProductGET(app,'/product/pantera',function(error, res){
 	should.not.exist(error);  
 	done();
       });
     });
     it('GET /product/:name - get success item as true',function(done){
-      requestProductGET('/product/pantera',function(error, res){
+      requestProductGET(app,'/product/pantera',function(error, res){
 	should.not.exist(error);
 	expect(res.body.success).to.not.be.undefined;
 	done();
       });
     });
     it('GET /product/:name - should exist product index',function(done){
-      requestProductGET('/product/pantera',function(error,res){
+      requestProductGET(app,'/product/pantera',function(error,res){
 	 should.not.exist(error); 
 	 should.exist(res.body.products);
 	 done();
@@ -109,7 +118,7 @@ describe('Product API',function(){
        .expect(404,done);
     });
     it('GET /product/:name - name = guri product.length should 1',function(done){
-      requestProductGET('/product/gury',function(error, res){
+      requestProductGET(app,'/product/gury',function(error, res){
 	  should.not.exist(error); 
 	  expect(res.body.products.length).to.be.equal(0);
 	  done();
@@ -124,7 +133,7 @@ describe('Product API',function(){
       };
       Product.create(product,function(error){
 	 should.not.exist(error);     
-	 requestProductGET('/product/gury',function(reqError, res){
+	 requestProductGET(app,'/product/gury',function(reqError, res){
 	   should.not.exist(reqError);
 	    expect(product).to.not.null;
 	    expect(product.brand).to.equal(res.body.products[0].brand); 
@@ -138,7 +147,7 @@ describe('Product API',function(){
       var product = {name : 'pedemoleque', brand: 'dory', quantity: 33, price: 0.10};
       Product.create(product,function(error){
 	should.not.exist(error);
-       requestProductGET('/product/pedemoleque',function(reqError, res){
+       requestProductGET(app,'/product/pedemoleque',function(reqError, res){
 	   should.not.exist(reqError);
 	 expect(res.body.products[0].name).to.equal(product.name);
 	 done();
@@ -149,7 +158,7 @@ describe('Product API',function(){
 });
 
 
-function requestProductPost(path,data,cb){
+function requestProductPost(app,path,data,cb){
   var path = path || '/product';	
   request(app)
   .post(path)
@@ -160,7 +169,7 @@ function requestProductPost(path,data,cb){
   .end(cb);
 }
 
-function requestProductGET(path,cb){
+function requestProductGET(app,path,cb){
   request(app)
   .get(path)
   .set('x-access-auth-slselltk', authToken)

@@ -57,9 +57,9 @@ if(app.get('evn') === 'development'){
 
 app.use(error.production);
 
-app.listen(8080,function(){
+var server = app.listen(8080,function(){
   console.log('Im working');
 });
 
-module.exports = app;
+module.exports = server; 
 

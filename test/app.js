@@ -1,9 +1,18 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 var request = require('supertest');
-var app = require('../../app');
+
+var app;
 
 describe('routes', function(){
+   beforeEach(function(done){
+     app = require('../app');   
+     done();
+   });
+   afterEach(function(done){
+     app.close(); 
+     done();
+   });
    it('/ - should answer as html home page',function(done){
 	request(app)
 	.get('/')

@@ -12,13 +12,14 @@ describe('ProductSchema',function(){
    price: 14
  });	
  before(function(done){
-   /*mongoose.connect(process.env.MONGO_CONNECT);	 */
-   Product.remove().exec();
+   mongoose.connection.close();
+   mongoose.connect(process.env.MONGO_CONNECT); 
    done();
  });	
  after(function(done){
-    mongoose.connection.close();
-    done();
+   Product.remove().exec();
+   mongoose.connection.close();
+   done();
  });
  afterEach(function(done){
     Product.remove().exec();
