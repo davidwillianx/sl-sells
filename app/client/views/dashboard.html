@@ -1,0 +1,77 @@
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+	     mdl-layout--fixed-header">
+       <header class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow ">
+      	 <div class="mdl-layout__header-row">
+	  <!-- <div class="mdl-layout-spacer"></div>-->
+            <div class="searchBox mdl-textfield mdl-js-textfield mdl-textfield--expandable  mdl-textfield--align-left mdl-textfield--full-width is-focused">
+              <label class="mdl-button mdl-js-button mdl-button--icon" for="productSearch">
+	        <i class="material-icons">search</i>
+	      </label>
+              <div class="mdl-textfield__expandable-holder">
+                <input  type="text" id="productSearch" class="mdl-textfield__input">
+                <label class="mdl-textfield__label" for="productSearch"> Find Good things</label>
+              </div>
+            </div>
+	     <div class="mdl-layout-spacer"></div>
+	   </div>
+       </header>
+	<div class="mdl-layout__drawer mdl-color--blue-grey-800">
+	  <div class="mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 mld-grid">
+	   <div class="mdl-cell mdl-cell--12-col drawer-profile">
+                 <img src="/imgs/meme.gif" width="100px" heigth="100px" alt="user face">
+	   </div>
+	  </div>
+	  <nav class="mdl-drawer-nav-label mdl-navigation ">
+	    <a class="mdl-navigation__link" href="">
+   	       <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
+	       Home
+	    </a>
+	    <a class="mdl-navigation__link" href="">
+   	       <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
+	      History
+	    </a>
+	  </nav>
+	</div>
+	<main class="mdl-layout__content">
+	    <div class="mdl-grid" id="grid-product">
+		 <div id="load" class="mdl-spinner mdl-js-spinner" ></div>
+	    </div> 
+	</main>
+      </div>
+      <div id="box-new-product" class="new-item new-item-hide mdl-cell mdl-cell--5-col mdl-shadow--3dp mdl-cell--4-col-tablet mdl-cell--4-phone mdl-card">
+          <div class="mdl-card__media"><img src="/imgs/dog.png" alt=""></div>
+          <div class="mdl-card__title">
+            <h4 class="mdl-card__title-text">New Products</h4>
+          </div>
+          <div class="mdl-card__supporting-text">
+	     <form action="#" id="newProduct">
+	     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet  mdl-textfield mdl-js-textfield">
+	       <input id="pname" class="mdl-textfield__input" type="text" name="productname">
+	       <label class="mdl-textfield__label" for="pname">Product name</label>
+	     </div>
+	     <div   class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+	       <input id="bname"class="mdl-textfield__input" type="text" name="productname">
+	       <label class="mdl-textfield__label" for="bname">Brand name</label>
+	     </div>
+	     <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+	       <input id="qt" class="mdl-textfield__input" type="text" name="productname">
+	       <label class="mdl-textfield__label" for="qt">Quantity</label>
+	     </div>
+	     <div  class="mdl-cell mdl-cell--4-col  mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+	       <input id="price" class="mdl-textfield__input" type="text" name="productname">
+	       <label class="mdl-textfield__label" for="price">Price</label>
+	     </div>
+	     <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+	       <button id="setNewProduct" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+	          Save
+	       </button>
+	     </div>
+	     </form>
+	  </div>
+          <div class="mdl-card__actions">
+	  </div>
+      </div>
+      <button id="add" class="add-product mdl-button mdl-js-button mdl-shadow--4dp  mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+      </button>
+  
