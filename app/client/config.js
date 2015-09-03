@@ -10,7 +10,7 @@ angular.module('slsells',['ngRoute'])
       controllerAs: 'access'
     })
     .when('/dashboard',{
-      templateUrl: '',
+      templateUrl: 'views/dashboard.html',
       controller: 'DasboardController',
       controllerAs: 'dash',
       access: {

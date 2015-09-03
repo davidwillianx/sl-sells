@@ -27,17 +27,20 @@ productAPI.post('/',function(req, res){
     });
 });
 
-productAPI.get('/:productname',function(req, res){
-  if(req.params.productname){
-     var productService = new  ProductService();
-     var likeClause = new RegExp(req.params.productname, 'i');
+productAPI.get('/:productname?',function(req, res){
+  var query = {};
+  var productService = new  ProductService();
 
-     productService.find({name:likeClause},function(error, products){
-          if(error) res.json({success: false, message: error.message});       
-	  res.json({success: true, products: products});
-     });
-  }  
+  if(req.params.productname){
+     var likeClause = new RegExp(req.params.productname, 'i');
+     query = {name: likeClause};
+  }
+
+   productService.find(query,function(error, products){
+	if(error) res.json({success: false, message: error.message});       
+	res.json({success: true, products: products});
+   });
 });
- 
+
 
 module.exports = productAPI;

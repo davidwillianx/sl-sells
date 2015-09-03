@@ -111,11 +111,11 @@ describe('Product API',function(){
 	 done();
       });
     }); 
-    it('GET /product/:name with no name receives 404',function(done){
+    it('GET /product/:name with no name receives 200',function(done){
        request(app)
        .get('/product/')
        .set('x-access-auth-slselltk',authToken)
-       .expect(404,done);
+       .expect(200,done);
     });
     it('GET /product/:name - name = guri product.length should 1',function(done){
       requestProductGET(app,'/product/gury',function(error, res){
