@@ -4,13 +4,18 @@
   </div>
   <div class="mdl-card__title">
     <h4 class="mld-card__title-text">
-      {{product}}
+      {{data.name}}
     </h4>
   </div>
   <div class="mdl-card__supporting-text">
-    this bautiful dog
+    Brand : {{data.brand}} | Qtd: {{data.quantity}}
   </div>
   <div class="mdl-card__actions">
-    comprar |adicionar
+    <button class="mdl-button mdl-js-button mdl-button--primary">
+      comprar {{data.price | currency:'R$ '}}
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--colored">
+      adicionar
+    </button>
   </div>
 </div>

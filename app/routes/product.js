@@ -30,10 +30,11 @@ productAPI.post('/',function(req, res){
 productAPI.get('/:productname?',function(req, res){
   var query = {};
   var productService = new  ProductService();
-
+  console.log('VALUE', req.params);
   if(req.params.productname){
      var likeClause = new RegExp(req.params.productname, 'i');
      query = {name: likeClause};
+     console.log('VALEPARAM', req.params.productname);
   }
 
    productService.find(query,function(error, products){
