@@ -44,7 +44,6 @@
  position:absolute;
  top:20%;
  left:30%;
- display:none;
 }
 
 .login-box{
@@ -54,7 +53,7 @@
 .new-item-hide{
  display:none;
 }
-.new-item-active{
+.new-item-show{
  display:block;
 }
 

@@ -38,6 +38,7 @@
 	    </div> 
 	</main>
       </div>
-      <button ng-click="addProduct()" class="add-product mdl-button mdl-js-button mdl-shadow--4dp  mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <modalnewproduct ng-show="isModalOpened"></modalnewproduct>
+      <button ng-click="modalNewProduct()" class="add-product mdl-button mdl-js-button mdl-shadow--4dp  mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
         <i class="material-icons">add</i>
       </button>
