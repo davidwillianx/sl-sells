@@ -10,7 +10,6 @@ angular.module('slsells')
 	.then(function(access){
 	  AuthenticationFactory.isLogged = true;
 	  $window.sessionStorage.token = access.data.token; 
-	  console.log('RESULT', access);
           $location.path('/dashboard');
 	},function(error){
 	  console.log('May Something happend in a wrong way');

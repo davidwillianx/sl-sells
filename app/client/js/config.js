@@ -20,6 +20,21 @@ angular.module('slsells',['ngRoute'])
     .otherwise({redirectTo: '/'});
  });
 
-
-
+ angular.module('slsells')
+ .run(['$rootScope','$window','$location','AuthenticationFactory'
+ ,function($rootScope,$window,$location,AuthenticationFactory){
   
+   AuthenticationFactory.check();  
+
+   $rootScope.$on('$routeChangeStart',function(event, nextRoute, currentRoute){
+       if((nextRoute.access && nextRoute.access.requiredLogin) && !AuthenticationFactory
+	 .isLogged){
+          $location.path('/'); 
+       }
+   });
+
+   $rootScope.$on('$routeChangeSuccess',function(event, nextRoute, currentRoute){
+     if(AuthenticationFactory.isLogged  && $location.path() == '/')
+         $location.path('/dashboard');
+   });
+ }]);
