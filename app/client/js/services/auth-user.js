@@ -1,4 +1,10 @@
-angular.module('slsells').factory('UserAuth',['$window','$location','$http','AuthenticationFactory',function($window, $location, $http,AuthenticationFactory){
+angular.module('slsells')
+.factory('UserAuth',[
+  '$window',
+  '$location',
+  '$http',
+  'AuthenticationFactory'
+  ,function($window, $location, $http,AuthenticationFactory){
   return {
     login: function(username, password){
       return $http.post('/user/connect',{
@@ -6,10 +12,11 @@ angular.module('slsells').factory('UserAuth',['$window','$location','$http','Aut
 	password: password
       });	
     },
-    logout:  function(){
+    logout: function(){
       if(AuthenticationFactory.isLogged){
         delete $window.sessionStorage.token;
-	$location.path('/');
+	AuthenticationFactory.isLogged = false;
+	$location.path("/");     
       } 
     }
   };

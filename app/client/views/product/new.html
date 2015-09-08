@@ -1,31 +1,31 @@
 
 <div class="ng-hide  new-item mdl-cell mdl-cell--5-col mdl-shadow--3dp mdl-cell--4-col-tablet mdl-cell--4-phone mdl-card">
-          <div class="mdl-card__media"><img src="/imgs/dog.png" alt=""></div>
-          <div class="mdl-card__title">
-            <h4 class="mdl-card__title-text">New Products</h4>
-          </div>
-          <div class="mdl-card__supporting-text">
-	     <form method="POST" name="createProduct"  ng-submit="createProduct.$valid && addProduct(product)">
-	     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet  mdl-textfield mdl-js-textfield">
-	       <input ng-required="true" ng-model="product.name" class="mdl-textfield__input" type="text" name="productname">
-	       <label class="mdl-textfield__label" for="pname">Product name</label>
-	     </div>
-	     <div   class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	       <input ng-required="true" ng-model="product.brand" class="mdl-textfield__input" type="text" name="brand">
-	       <label class="mdl-textfield__label" for="bname">Brand name</label>
-	     </div>
-	     <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	       <input  ng-required="true" ng-model="product.quantity" class="mdl-textfield__input" type="text" name="quantity">
-	       <label class="mdl-textfield__label" for="qt">Quantity</label>
-	     </div>
-	     <div  class="mdl-cell mdl-cell--4-col  mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	       <input ng-required="true" ng-model="product.price"  class="mdl-textfield__input" type="text" name="price">
-	       <label class="mdl-textfield__label" for="price">Price</label>
-	     </div>
-	     <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-	          Save
-	       </button>
-	     </div>
-	     </form>
-	  </div>
+  <div class="mdl-card__media"><img src="/imgs/dog.png" alt=""></div>
+  <div class="mdl-card__title">
+    <h4 class="mdl-card__title-text">New Products</h4>
+  </div>
+  <div class="mdl-card__supporting-text">
+     <form method="POST" name="createProduct"  ng-submit="createProduct.$valid && addProduct(product)">
+     <div id="pname" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet  mdl-textfield mdl-js-textfield">
+       <input ng-required="true" ng-model="product.name" class="mdl-textfield__input" type="text" name="productname">
+       <label class="mdl-textfield__label" for="pname">Product name</label>
+     </div>
+     <div  id="bname" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+       <input ng-required="true" ng-model="product.brand" class="mdl-textfield__input" type="text" name="brand">
+       <label class="mdl-textfield__label" for="bname">Brand name</label>
+     </div>
+     <div id="qt" class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+       <input  ng-required="true" ng-model="product.quantity" class="mdl-textfield__input" type="text" name="quantity">
+       <label class="mdl-textfield__label" for="qt">Quantity</label>
+     </div>
+     <div  class="mdl-cell mdl-cell--4-col  mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+       <input  ng-required="true" ng-model="product.price"  class="mdl-textfield__input" type="text" name="price">
+       <label class="mdl-textfield__label" for="price">Price</label>
+     </div>
+     <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+	  Save
+       </button>
+     </div>
+     </form>
+</div>

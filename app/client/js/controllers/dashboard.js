@@ -1,12 +1,11 @@
-angular.module('slsells').controller('DasboardController',['$scope','ProductHttpReqApi',function($scope,ProductHttpReqApi){
+angular.module('slsells')
+.controller('DasboardController',
+  ['$scope','ProductHttpReqApi','UserAuth',function($scope,ProductHttpReqApi,UserAuth){
+
   $scope.products = {};
   $scope.qName;
   $scope.isModalOpened = false;
 
-  $scope.addProduct = function(){
-    console.log('We are going to add');  
-  };
- 
   $scope.loadProducts  = function(){
     ProductHttpReqApi.searchAll().then(function(apiData){
       $scope.products = apiData.data.products;
@@ -28,9 +27,15 @@ angular.module('slsells').controller('DasboardController',['$scope','ProductHttp
   };  
 
   $scope.addProduct = function(product){
-    console.log('IM HERE');  
-    return false;
+    ProductHttpReqApi.save(product)
+    .then(function(apiData){
+       $scope.loadProducts();
+       $scope.modalNewProduct();
+    });
   };
 
+  $scope.logout = function(){
+    UserAuth.logout(); 
+  };
 }]);
 
