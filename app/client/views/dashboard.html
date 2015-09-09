@@ -15,17 +15,9 @@
             <div class="mdl-layout-spacer">
 	    </div>
 	    <button id="shpcart" ng-mouseover="toggleShopCart()" ng-click="toggleShopCart()" class="mdl-button mdl-js-button mdl-button--fab mld-button--icon mdl-js-ripple-efect">
-	      <span class="material-icons mdl-badge" data-badge="3">shopping_cart</span>
-	      
-
+	      <span class="material-icons mdl-badge" data-badge="{{shopCartProducts.length}}">shopping_cart</span>
 	    </button>
-	    <div ng-class="{'is-visible': isShopCartOpened}"  ng-mouseleave="toggleShopCart()" class="mdl-menu__container is-upgraded" style="right: 40px; top: 48px; width: 141.562px; height: 160px;">
-	      <div class="mdl-menu__outline mdl-menu--bottom-right" style="width: 141.562px; height: 160px;"></div>
-	     <ul for="shpcart"class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right mdl-js-ripple-effect--ignore-events" style="clip: rect(0px 141.562px 160px 0px);">
-	       <li  ng-repeat="product in products" class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple" style="transition-delay: 0.012s;" >{{product.name}}</li>
-		 </ul>
-	    </div>
-	   </div>
+	  </div>
        </header>
 
 	<div class="mdl-layout__drawer mdl-color--blue-grey-800">
@@ -60,6 +52,7 @@
 	</main>
       </div>
       <modalnewproduct ng-show="isModalOpened"></modalnewproduct>
+      <shoppingcart data="products"  ng-show="isShopCartOpened"></shoppingcart>
       <button ng-click="modalNewProduct()" class="add-product mdl-button mdl-js-button mdl-shadow--4dp  mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
         <i class="material-icons">add</i>
       </button>

@@ -6,6 +6,8 @@ angular.module('slsells')
   $scope.qName;
   $scope.isModalOpened = false;
   $scope.isShopCartOpened = false; 
+  $scope.shopCartProducts = [];
+
   $scope.loadProducts  = function(){
     ProductHttpReqApi.searchAll().then(function(apiData){
       $scope.products = apiData.data.products;
@@ -40,7 +42,13 @@ angular.module('slsells')
 
   $scope.toggleShopCart = function(){
     var status = $scope.isShopCartOpened;
-    $scope.isShopCartOpened =  (status == true) ? false : true;
+    $scope.isShopCartOpened = (status == true) ? false : true;
   };
+   
+  $scope.addShopCartProduct = function(product){
+    console.log('adding');
+    $scope.shopCartProducts.push(product); 
+  };
+
 }]);
 
