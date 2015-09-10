@@ -3,6 +3,7 @@
   "description": "help me to memorize the prices of goods at store",
   "author": "davidwillianx",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha test/ --recursive "
   },
   "dependencies": {
