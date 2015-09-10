@@ -4,7 +4,6 @@ var request = require('supertest');
 var Product = require('../../app/models/product');
 var User = require('../../app/models/user');
 var mongoose = require('mongoose');
-require('dotenv').load();
 
 
 var authToken = '';

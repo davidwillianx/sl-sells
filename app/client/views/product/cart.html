@@ -1,0 +1,22 @@
+<table class="new-item mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp is-upgraded">
+  <thead>
+    <th> 
+     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-efect" for="all">
+       <input id="all" class="mdl-checkbox__input" type="checkbox">
+     </label>
+    </th>
+    <th class="mdl-data-table__cell--non-numeric">Name </th>
+    <th class="mdl-data-table__cell--non-numeric">Brand </th>
+    <th class="">Price </th>
+    <th>Quantity</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in  data">
+      <td></td>
+      <td class="mdl-data-table__cell--non-numeric">{{product.name}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{product.brand}}</td>
+      <td>{{product.price  | currency}} </td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table> 

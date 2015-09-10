@@ -2,7 +2,6 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var mongoose = require('mongoose');
 var Product = require('../../app/models/product');
-require('dotenv').load();
 
 describe('ProductSchema',function(){
  var product = new Product({

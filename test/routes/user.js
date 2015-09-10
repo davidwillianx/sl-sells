@@ -4,7 +4,6 @@ var should = require('chai').should();
 var User  = require('../../app/models/user');
 var jsonWebToken = require('jsonwebtoken');
 var mongoose = require('mongoose');
-require('dotenv').load();
 
 
 describe('User  url business',function(){

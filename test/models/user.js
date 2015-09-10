@@ -1,7 +1,6 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 var mongoose = require('mongoose');
-require('dotenv').load();
 var User = require('../../app/models/user');
 
 describe('UserSchema',function(){

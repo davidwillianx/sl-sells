@@ -3,7 +3,6 @@ var should  = require('chai').should();
 var mongoose = require('mongoose');
 var Product = require('../../app/models/product');
 var ProductService = require('../../app/services/product');
-require('dotenv').load();
 
 describe('ProductService',function(){
   var  productService; 	

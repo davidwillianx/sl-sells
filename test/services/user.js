@@ -3,7 +3,6 @@ var expect = require('chai').expect;
 var mongoose = require('mongoose');
 var UserService = require('../../app/services/user');
 var User = require('../../app/models/user');
-require('dotenv').load();
 
 describe('UserService',function(){
   before(function(done){

@@ -1,6 +1,5 @@
 var express = require('express');
 var jsonWebToken = require('jsonwebtoken');
-require('dotenv').load();
 
 module.exports = function(userRoute,passport){
 
