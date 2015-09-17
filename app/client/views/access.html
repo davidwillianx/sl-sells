@@ -1,33 +1,23 @@
-    <header></header>
-    <main>
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet  mld-cell--hide-phone"></div>
-      <div id="box-new-product" class="login-box mdl-cell mdl-cell--5-col mdl-shadow--3dp mdl-cell--4-col-tablet mdl-cell--4-phone mdl-card">
-      <div class="mdl-card__media top-icon-center"><img src="/imgs/tools.png" alt=""></div>
-      <div class="mdl-card__title">
-	<h4 class="mdl-card__title-text">Dashboard Access</h4>
-      </div>
-      <div class="mdl-card__supporting-text" >
-	 <form method="POST" name="formAccess"  id="email" ng-submit="formAccess.$valid && sigin(user) ">
-	 <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet  mdl-textfield mdl-js-textfield">
-	   <input id="pname" ng-required="true" mailvalid  ng-model="user.email"  class="mdl-textfield__input" type="text" name="email">
-	   <label class="mdl-textfield__label" for="email">Username</label>
-	 </div>
-	 <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	   <input id="pname" ng-required="true" ng-model="user.password"  class="mdl-textfield__input" type="password" name="password">
-	   <label class="mdl-textfield__label" for="password">Password</label>
-	 </div>
-	 <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield">
-	   <button id=" ng-disable="formAccess.$valid"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-	     Go!
-	   </button>
-	 </div>
-	 </form>
-      </div>
-      <div class="mdl-card__actions">
-      </div>
+<div flex  layout="row" layout-align="center center">
+  <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="40" class=" md-whiteframe-z4">
+    <md-toolbar class="md-primary">
+      <h1 class="md-toolbar-tools">
+	Acesse!!
+      </h1>
+    </md-toolbar>
+    <md-content class="md-padding">
+      <form name="access"  ng-submit="access.$valid && sigin(user)" novalidate>
+	<md-input-container>
+          <label for="">Email</label>
+          <input type="email" ng-model="user.email" required />
+        </md-input-container>
+	<md-input-container>
+          <label for="">Password</label>
+	  <input type="password" ng-model="user.password"  ng-minlenght="4" required />
+        </md-input-container>
+
+	<md-button class="md-primary" >Lets!</md-button>
+      </form>
+    </md-content>
   </div>
-    </div>
- 
-    </main>
- 
+</div>

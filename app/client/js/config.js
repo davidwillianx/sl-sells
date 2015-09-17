@@ -1,4 +1,4 @@
-angular.module('slsells',['ngRoute'])
+angular.module('slsells',['ngRoute','ngMaterial','ngMdIcons'])
  .config(['$httpProvider',function($httpProvider){
    $httpProvider.interceptors.push('authInterceptor');
  }])

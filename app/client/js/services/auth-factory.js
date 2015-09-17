@@ -1,4 +1,6 @@
-angular.module('slsells').factory('AuthenticationFactory',['$window',function($window){
+angular.module('slsells').factory(
+  'AuthenticationFactory',
+  ['$window',function($window){
   return {
      isLogged: false,
      check: function(){
