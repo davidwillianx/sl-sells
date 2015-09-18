@@ -1,58 +1,32 @@
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-	     mdl-layout--fixed-header">
-       <header class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow ">
-      	 <div class="mdl-layout__header-row">
-	  <!-- <div class="mdl-layout-spacer"></div>-->
-            <div class="searchBox mdl-textfield mdl-js-textfield mdl-textfield--expandable  mdl-textfield--align-left mdl-textfield--full-width is-focused">
-              <label class="mdl-button mdl-js-button mdl-button--icon" for="productSearch">
-	        <i class="material-icons">search</i>
-	      </label>
-              <div class="mdl-textfield__expandable-holder">
-                <input  type="text" ng-model="qName" id="productSearch" class="mdl-textfield__input">
-                <label class="mdl-textfield__label" for="productSearch"> Find Good things</label>
-              </div>
-            </div>
-            <div class="mdl-layout-spacer">
-	    </div>
-	    <button id="shpcart" ng-mouseover="toggleShopCart()" ng-click="toggleShopCart()" class="mdl-button mdl-js-button mdl-button--fab mld-button--icon mdl-js-ripple-efect">
-	      <span class="material-icons mdl-badge" data-badge="{{shopCartProducts.length}}">shopping_cart</span>
-	    </button>
-	  </div>
-       </header>
-
-	<div class="mdl-layout__drawer mdl-color--blue-grey-800">
-	  <div class="mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 mld-grid">
-	   <div class="mdl-cell mdl-cell--12-col drawer-profile">
-                 <img src="/imgs/meme.gif" width="100px" heigth="100px" alt="user face">
-	   </div>
-	  </div>
-	  <nav class="mdl-drawer-nav-label mdl-navigation ">
-	    <a class="mdl-navigation__link" href="">
-   	       <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-	       Home
-	    </a>
-	    <a class="mdl-navigation__link" href="">
-   	       <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
-	      History
-	    </a>
-	    <a class="mdl-navigation__link" href="">
-	     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>
-	     Goods list
-	    </a>
-	    <a class="mdl-navigation__link" ng-click="logout()" href="">
-	      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">power_settings_new</i>
-	       Logout 
-	    </a>
- 
-	 </div>
-	<main class="mdl-layout__content">
-	    <div class="mdl-grid">
-	       <product ng-repeat="product in products" data="product" ></product>
-	    </div> 
-	</main>
-      </div>
-      <modalnewproduct ng-show="isModalOpened"></modalnewproduct>
-      <shoppingcart data="products"  ng-show="isShopCartOpened"></shoppingcart>
-      <button ng-click="modalNewProduct()" class="add-product mdl-button mdl-js-button mdl-shadow--4dp  mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-        <i class="material-icons">add</i>
-      </button>
+<div layout="column" flex>
+  <md-toolbar>
+    <h1>bar</h1>
+  </md-toolbar>
+  <div layout="row" flex>
+    <md-sidenave layout="column"
+	class="md-sidenave-left md-whiteframe-z2"
+        md-component-id="left"
+	md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-tall">
+           <h1 class="md-toolbar-tools"> Coding </h1>
+	</md-toolbar>
+	<md-list>
+	    <md-item>
+	      <a>
+		<md-item-content  md-ink-ripple layout="row" layout-align="start center" >
+		  <div class="inset">
+		   <ng-md-icon icon="dashboard"></ng-md-icon> 	
+		  </div>
+		  <div class="inset">
+		    Dasboard
+		  </div>
+		</md-item-content>
+	      </a>	
+	    </md-item>
+	</md-list>
+     </md-sidenave>
+     <md-content flex>
+       something awesome will place right here !
+     </md-content>
+  </div>
+</div>
